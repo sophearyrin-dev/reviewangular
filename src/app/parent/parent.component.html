@@ -1,3 +1,14 @@
 <p>parent component</p>
 
-<app-child [message]= messageSendToChild></app-child>
+<app-child 
+  [message]="messageSendToChild" 
+  [message2]="messageGoodByeChild"
+  (messageEvent)="receivedMessageFromChild($event)"
+  (messageEvent2)="receiveMsg2FromChild($event)"
+>
+  
+</app-child>
+
+<p>Message from my Child: {{ msg }}</p>
+
+<p>Question From my child: {{ msg2 }} </p>
