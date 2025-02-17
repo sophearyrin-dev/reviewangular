@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ParentComponent } from './parent/parent.component';
 import { ChildComponent } from './child/child.component';
+import { CrewUserProfileComponent } from './crew-user-profile/crew-user-profile.component';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { ChildComponent } from './child/child.component';
     ParentComponent,
     ChildComponent,
     ParentComponent,
-    ChildComponent
+    ChildComponent,
+    CrewUserProfileComponent
   ],
   imports: [
     BrowserModule,
