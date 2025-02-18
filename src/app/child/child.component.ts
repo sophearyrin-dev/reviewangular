@@ -12,14 +12,25 @@ export class ChildComponent {
   @Output() messageEvent = new EventEmitter<string>();
   @Output() messageEvent2 = new EventEmitter<string>();
 
+  //user information
+  @Input() userId: string = "";
+  @Input() userName: string = "";
+  @Output() submitEvent = new EventEmitter<{ userId: string; userName: string }>();
+
   onSendMessageToParent(){
     this.messageEvent.emit("Hello Parents, I hope you are doing good");
   }
 
-  onSeekingMoney(){
-    this.messageEvent2.emit("Papa, Can I have some money?");
+  onSeekingMoney($event: any){
+    this.messageEvent2.emit($event);
+    console.log($event);
+    
   }
 
-  
+  submitForm() {
+    this.submitEvent.emit({ userId: this.userId, userName: this.userName });
+  }
+
+
 
 }

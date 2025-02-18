@@ -6,4 +6,21 @@
 
 
 <button (click)="onSendMessageToParent()">Send Message To Parent</button>
-<button (click)="onSeekingMoney()">Questions</button>
+<button (click)="onSeekingMoney($event)">Questions</button>
+
+
+<h1>User Information</h1>
+
+<input
+  type="text"
+  [(ngModel)]="userId"
+  placeholder="Enter user ID"
+/>
+
+<input
+  type="text"
+  [(ngModel)]="userName"
+  placeholder="Enter user name" 
+/>
+
+<button (click)="submitForm()">Submit</button>

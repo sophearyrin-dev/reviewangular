@@ -21,4 +21,10 @@ export class ParentComponent {
     this.msg2 = msg2;
   }
 
+  handleUserSubmit(event: { userId: string; userName: string }) {
+    console.log("User ID:", event.userId);
+    console.log("User Name:", event.userName);
+  }
+  
+
 }

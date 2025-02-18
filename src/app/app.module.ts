@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { ParentComponent } from './parent/parent.component';
 import { ChildComponent } from './child/child.component';
 import { CrewUserProfileComponent } from './crew-user-profile/crew-user-profile.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { CrewUserProfileComponent } from './crew-user-profile/crew-user-profile.
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
