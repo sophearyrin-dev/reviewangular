@@ -17,6 +17,8 @@ export class ChildComponent {
   @Input() userName: string = "";
   @Output() submitEvent = new EventEmitter<{ userId: string; userName: string }>();
 
+  @Output() userChange = new EventEmitter<{ userId: string; userName: string }>();
+
   onSendMessageToParent(){
     this.messageEvent.emit("Hello Parents, I hope you are doing good");
   }
@@ -29,6 +31,10 @@ export class ChildComponent {
 
   submitForm() {
     this.submitEvent.emit({ userId: this.userId, userName: this.userName });
+  }
+
+  onInputChange() {
+    this.userChange.emit({ userId: this.userId, userName: this.userName });
   }
 
 

@@ -6,9 +6,12 @@
   (messageEvent)="receivedMessageFromChild($event)"
   (messageEvent2)="receiveMsg2FromChild($event)"
   (submitEvent)="handleUserSubmit($event)"
->
-  
+  [userId]="userId"
+  [userName]="userName"
+  (userChange)="updateUser($event)">
 </app-child>
+
+<button (click)="saveData()">Save</button>
 
 <p>Message from my Child: {{ msg }}</p>
 

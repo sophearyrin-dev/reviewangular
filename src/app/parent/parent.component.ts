@@ -25,6 +25,20 @@ export class ParentComponent {
     console.log("User ID:", event.userId);
     console.log("User Name:", event.userName);
   }
+
+  userId: string = "";
+  userName: string = "";
+
+  updateUser(event: { userId: string; userName: string }) {
+    this.userId = event.userId;
+    this.userName = event.userName;
+  }
+
+  saveData() {
+    console.log("Saving User ID:", this.userId);
+    console.log("Saving User Name:", this.userName);
+    // You can add logic to send this data to the backend
+  }
   
 
 }

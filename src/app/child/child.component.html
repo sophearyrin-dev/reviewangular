@@ -11,7 +11,7 @@
 
 <h1>User Information</h1>
 
-<input
+<!-- <input
   type="text"
   [(ngModel)]="userId"
   placeholder="Enter user ID"
@@ -21,6 +21,20 @@
   type="text"
   [(ngModel)]="userName"
   placeholder="Enter user name" 
+/> -->
+
+<input
+  type="text"
+  [(ngModel)]="userId"
+  (input)="onInputChange()"
+  placeholder="Enter user ID"
+/>
+
+<input
+  type="text"
+  [(ngModel)]="userName"
+  (input)="onInputChange()"
+  placeholder="Enter user name"
 />
 
 <button (click)="submitForm()">Submit</button>
