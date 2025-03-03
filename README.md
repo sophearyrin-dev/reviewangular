@@ -1,27 +1,63 @@
-# Reviewangular
+# Angular Directives
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.7.
+## Overview
+Angular **directives** are used to extend HTML functionality by adding custom behavior to elements in the DOM. There are three main types of directives in Angular:
 
-## Development server
+## 1. Component Directives
+- Components are the most common type of directive.
+- They include a template (HTML), styles (CSS), and logic (TypeScript).
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### Example:
+```typescript
+@Component({
+  selector: 'app-example',
+  template: `<h1>Hello, Angular!</h1>`
+})
+export class ExampleComponent {}
+```
 
-## Code scaffolding
+## 2. Structural Directives
+- These modify the structure of the DOM by adding, removing, or manipulating elements.
+- They usually start with an `*` (e.g., `*ngIf`, `*ngFor`).
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Example:
+```html
+<p *ngIf="isVisible">This paragraph is conditionally displayed.</p>
+```
+```html
+<ul>
+  <li *ngFor="let item of items">{{ item }}</li>
+</ul>
+```
 
-## Build
+## 3. Attribute Directives
+- These change the appearance or behavior of an element.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Example (Using `ngClass` and `ngStyle`):
+```html
+<p [ngClass]="{'text-danger': isError}">This is a paragraph.</p>
+```
 
-## Running unit tests
+### Custom Attribute Directive:
+```typescript
+@Directive({
+  selector: '[appHighlight]'
+})
+export class HighlightDirective {
+  constructor(private el: ElementRef) {
+    this.el.nativeElement.style.backgroundColor = 'yellow';
+  }
+}
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Usage:
+```html
+<p appHighlight>This text will be highlighted.</p>
+```
 
-## Running end-to-end tests
+## Conclusion
+Angular directives are powerful tools for enhancing HTML elements. Whether you need to modify the DOM structure, style elements dynamically, or create reusable behaviors, directives provide a flexible way to achieve this.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+---
+Would you like to customize this further? 😊
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
