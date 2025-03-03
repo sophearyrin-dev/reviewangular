@@ -58,6 +58,4 @@ export class HighlightDirective {
 ## Conclusion
 Angular directives are powerful tools for enhancing HTML elements. Whether you need to modify the DOM structure, style elements dynamically, or create reusable behaviors, directives provide a flexible way to achieve this.
 
----
-Would you like to customize this further? 😊
 
