@@ -149,4 +149,90 @@ export class ReceiverComponent implements OnDestroy {
 **State management** (alternative to centralized state management libraries)  
 
 
+# Input and Output in Angular
+
+## Introduction
+In Angular, `@Input` and `@Output` decorators are used for component communication. 
+- `@Input` allows a parent component to pass data to a child component.
+- `@Output` allows a child component to emit events to the parent component.
+
+## Using `@Input`
+The `@Input` decorator is used to bind data from a parent component to a child component.
+
+### Example:
+#### Parent Component (`app.component.ts`)
+```typescript
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  template: `<app-child [message]="parentMessage"></app-child>`
+})
+export class AppComponent {
+  parentMessage = 'Hello from Parent';
+}
+```
+
+#### Child Component (`child.component.ts`)
+```typescript
+import { Component, Input } from '@angular/core';
+
+@Component({
+  selector: 'app-child',
+  template: `<p>Message from parent: {{ message }}</p>`
+})
+export class ChildComponent {
+  @Input() message!: string;
+}
+```
+
+## Using `@Output`
+The `@Output` decorator allows a child component to send an event to the parent component.
+
+### Example:
+#### Parent Component (`app.component.ts`)
+```typescript
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  template: `
+    <app-child (messageEvent)="receiveMessage($event)"></app-child>
+    <p>Received message: {{ receivedMessage }}</p>
+  `
+})
+export class AppComponent {
+  receivedMessage = '';
+
+  receiveMessage(message: string) {
+    this.receivedMessage = message;
+  }
+}
+```
+
+#### Child Component (`child.component.ts`)
+```typescript
+import { Component, Output, EventEmitter } from '@angular/core';
+
+@Component({
+  selector: 'app-child',
+  template: `<button (click)="sendMessage()">Send Message</button>`
+})
+export class ChildComponent {
+  @Output() messageEvent = new EventEmitter<string>();
+
+  sendMessage() {
+    this.messageEvent.emit('Hello from Child');
+  }
+}
+```
+
+## Summary
+- Use `@Input` to receive data from the parent component.
+- Use `@Output` with `EventEmitter` to send data from the child to the parent component.
+- This is essential for component interaction and data flow in Angular applications.
+
+
+
+
 
