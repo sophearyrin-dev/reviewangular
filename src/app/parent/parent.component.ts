@@ -39,6 +39,9 @@ export class ParentComponent {
     console.log("Saving User Name:", this.userName);
     // You can add logic to send this data to the backend
   }
+
+  // 24 March 2025
+  email: string = 'sopheary@gmail.com';
   
 
 }

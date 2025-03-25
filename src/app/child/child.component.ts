@@ -37,6 +37,8 @@ export class ChildComponent {
     this.userChange.emit({ userId: this.userId, userName: this.userName });
   }
 
+  @Input() email: string ='';
+
 
 
 }
