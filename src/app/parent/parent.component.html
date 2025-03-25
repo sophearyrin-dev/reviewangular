@@ -9,7 +9,10 @@
   [userId]="userId"
   [userName]="userName"
   [email]="email"
-  (userChange)="updateUser($event)">
+  (userChange)="updateUser($event)"
+  (locationEvent)="getLocation($event)"
+  (locationsEvent)="getLocations($event)"
+  >
 </app-child>
 
 <button (click)="saveData()">Save</button>
@@ -17,5 +20,15 @@
 <p>Message from my Child: {{ msg }}</p>
 
 <p>Question From my child: {{ msg2 }} </p>
+
+
+<p [ngStyle]="{'color': 'blue'}"> Location Selected: {{this.location}}</p>
+
+<h1>Locations</h1>
+<ul *ngFor="let l of this.locations">
+  <li [ngStyle]="{'color': 'green'}">
+    {{l}}
+  </li>
+</ul>
 
 
