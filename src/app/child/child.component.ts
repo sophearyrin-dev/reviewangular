@@ -40,5 +40,25 @@ export class ChildComponent {
   @Input() email: string ='';
 
 
+  @Output() locationEvent = new EventEmitter<string>;
+
+
+  onSetLocation(){
+    this.locationEvent.emit("Phnom Penh, Cambodia");
+  }
+
+  locations: string[] = [
+    "230st IA US",
+    "300st CA US"
+  ];
+
+
+
+  @Output() locationsEvent = new EventEmitter<string[]>;
+  onSendLocation(){
+    this.locationsEvent.emit(this.locations);
+  }
+
+
 
 }

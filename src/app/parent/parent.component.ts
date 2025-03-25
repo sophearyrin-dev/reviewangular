@@ -42,6 +42,16 @@ export class ParentComponent {
 
   // 24 March 2025
   email: string = 'sopheary@gmail.com';
+
+  location: string ='';
+  getLocation(location: string){
+    this.location = location;
+  }
+
+  locations: string[] = [];
+  getLocations(locations: string[]){
+    this.locations = locations;
+  }
   
 
 }
