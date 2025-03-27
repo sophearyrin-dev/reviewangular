@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, input, Output } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-child',
@@ -58,6 +59,11 @@ export class ChildComponent {
   onSendLocation(){
     this.locationsEvent.emit(this.locations);
   }
+
+  @Input() price?: Number;
+
+
+  formLogin = FormGroup;
 
 
 

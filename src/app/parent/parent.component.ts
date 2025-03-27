@@ -52,6 +52,9 @@ export class ParentComponent {
   getLocations(locations: string[]){
     this.locations = locations;
   }
+
+  
+  price?: Number = 100;
   
 
 }
